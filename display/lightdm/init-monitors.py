@@ -57,7 +57,17 @@ class Monitor:
         lines = output.splitlines()
         return tuple(map((lambda l: Monitor(l.strip())), lines[1:]))
 
+def build_xrandr_commands(lid, monitors):
+    commands = []
+    if (lid.is_open()):
+        pass
+    return commands
+
 lid = Lid.read_state()
-print(lid.lid_state)
+print('lid is {0}'.format(lid.lid_state))
 monitors = Monitor.read_state()
 print(monitors)
+
+xrandr_commands = build_xrandr_commands(lid, monitors)
+for cmd in xrandr_commands:
+    subprocess.run(cmd)
