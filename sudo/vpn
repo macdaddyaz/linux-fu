@@ -1,0 +1,6 @@
+# Allow users in the 'sudo' group to restart the VPN service or kill its process
+# without a password. If the user authenticates via AD, and the VPN dies, then
+# sudo requests take a *VERY* long time to # prompt for the password and then
+# execute. This is a catch-22, because the only way to remedy the situation is
+# to restart the VPN service (severing the dead connection).
+%sudo   ALL=NOPASSWD: /bin/systemctl restart vpnagentd.service, /usr/bin/killall vpnagentd
