@@ -39,3 +39,6 @@ One or both of these can be used to reset the VPN agent back to a state
 where the VPN can be reconnected. Since no password is needed, then executing
 the commands should be at least somewhat faster, and typing your password wrong
 won't extend the process.
+
+To use, copy the file 'sudo/vpn' to `/etc/sudoers.d/`. Make sure the new file
+is owned by root, and that permissions are `0440`.
